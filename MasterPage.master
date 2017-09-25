@@ -1,0 +1,32 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Plethora</title>  
+    <link href="styles/global.css" rel="stylesheet" /> 
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <header id="header">  
+    <h1>Plethora</h1>  
+    </header>  
+    <nav id="nav">  
+        <ul>  
+            <li><a href="home.aspx">Home</a></li>  
+            <li><a href="#">About</a></li>  
+            <li><a href="#">Article</a></li>  
+            <li><a href="#">Contact</a></li>  
+        </ul>  
+    </nav>  
+    
+    <div id = "con">
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    <footer id="footer">copyright @Harshish</footer>
+</body>
+</html>
