@@ -12,7 +12,7 @@ public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        string bookTitle = Request.QueryString["title"];
+        /*string bookTitle = Request.QueryString["title"];
         string bookAuthor = Request.QueryString["author"];
 
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString);
@@ -45,7 +45,7 @@ public partial class _Default : System.Web.UI.Page
                 {
                     Console.WriteLine(String.Format("{0}", reader["id"]));
                 }
-            }*/
+            } //
             DataSet dataset = new DataSet();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dataset);
@@ -62,6 +62,8 @@ public partial class _Default : System.Web.UI.Page
         finally
         {
 
-        }
+        }*/
+        if (GridView1.Rows.Count == 0)
+            Server.Transfer("BNF.aspx");
     }
 }
