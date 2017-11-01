@@ -7,7 +7,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <form id="request_form" runat="server">
         
-        <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
+        <asp:GridView ID="GridView1" Width="1365px" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
             <Columns>
                 <asp:TemplateField HeaderText="Order">
                     <ItemTemplate>
@@ -27,55 +27,55 @@
             <SortedDescendingCellStyle BackColor="#E9EBEF" />
             <SortedDescendingHeaderStyle BackColor="#4870BE" />
         </asp:GridView>
-
+        <asp:Label ID="lblinfo" CssClass="tm-carousel-item-title" runat="server"/>
         <asp:Button ID="modelPopup" runat="server" style="display:none" />
         <ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender1" runat="server" TargetControlID="modelPopup" PopupControlID="updatePanel"
         CancelControlID="btnCancel" BackgroundCssClass="tableBackground">
         </ajaxToolkit:ModalPopupExtender>
-        <asp:Panel ID="updatePanel" runat="server" BackColor="White" Height="230px" Width="300px" style="display:none">
+        <asp:Panel ID="updatePanel" runat="server" BackColor="White" Height="400px" Width="700px" style="display:none">
         <table width="100%" cellspacing="4">
-	        <tr style="background-color:#33CC66">
-	        <td colspan="2"  align="center">Publisher Details</td>
+	        <tr style="background-color:#263238">
+	        <td colspan="2"  align="center" class="tm-carousel-item-title">Publisher Details</td>
 	        </tr>
 	        <tr>
-		        <td align="right" style=" width:45%">
+		        <td align="right" style=" width:55%" class="tm-carousel-item-title">
 		        Title:
 		        </td>
 		        <td>
-		        <asp:Label ID="popTitle" runat="server"></asp:Label>
+		        <asp:Label ID="popTitle" CssClass="tm-carousel-item-title" runat="server"></asp:Label>
 		        </td>
 	        </tr>
 	        <tr>
-		        <td align="right">
+		        <td align="right" class="tm-carousel-item-title">
 		        Author:
 		        </td>
 		        <td>
-		        <asp:Label ID="popAuthor" runat="server"/>
+		        <asp:Label ID="popAuthor" CssClass="tm-carousel-item-title" runat="server"/>
 		        </td>
 	        </tr>
 	        <tr>
-		        <td align="right">
+		        <td align="right" class="tm-carousel-item-title">
 		        Publisher Name:
 		        </td>
 		        <td>
-		        <asp:TextBox ID="popPubName" runat="server"/>
+		        <asp:TextBox CssClass="form-control" ID="popPubName" runat="server"/>
 		        </td>
 	        </tr>
 	        <tr>
-		        <td align="right">
+		        <td align="right" class="tm-carousel-item-title">
 		        Publisher Address:
 		        </td>
 		        <td>
-		        <asp:TextBox ID="popPubAddress" runat="server"/>
+		        <asp:TextBox CssClass="form-control" ID="popPubAddress" runat="server"/>
 		        </td>
 	        </tr>
 	       
 	        <tr>
 		        <td align=right >
-		        <asp:Button ID="btnConfirm" runat="server" Text="Place Order" onclick="btnConfirm_Click"/>
+		        <asp:Button ID="btnConfirm" CssClass="tm-bordered-btn" runat="server" Text="Place Order" onclick="btnConfirm_Click"/>
 		        </td>
 		        <td>
-		        <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
+		        <asp:Button ID="btnCancel" CssClass="tm-bordered-btn" runat="server" Text="Cancel" />
 		        </td>
 	        </tr>
         </table>

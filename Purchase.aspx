@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <form id="Buy_form" runat="server">
-        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ISBN" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+        <asp:GridView ID="GridView1" Width="1365px" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ISBN" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:BoundField DataField="ISBN" HeaderText="ISBN" ReadOnly="True" SortExpression="ISBN" />
@@ -15,9 +15,9 @@
                 <asp:BoundField DataField="Copies" HeaderText="Copies" SortExpression="Copies" />
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <asp:Button ID="buyBtn" runat="server" CommandName="Select" Text="Add to Cart"/><br /><br />
-                        <asp:Label ID="lblqty" runat="server" Text="Quantity:"></asp:Label><br />
-                        <asp:TextBox ID="tbqty" TextMode="Number" Text="1" runat="server" min="1" max='<%# Eval("Copies") %>' step="1"></asp:TextBox>
+                        <asp:Label ID="lblqty" CssClass="tm-carousel-item-title" runat="server" Text="Quantity:"></asp:Label>
+                        <asp:TextBox ID="tbqty" CssClass="form-control" TextMode="Number" Text="1" runat="server" min="1" max='<%# Eval("Copies") %>' step="1"></asp:TextBox><br />
+                        <asp:Button ID="buyBtn" runat="server" CssClass="tm-bordered-btn" CommandName="Select" Text="Add to Cart"/>
                     </ItemTemplate>
                 </asp:TemplateField>
                 
@@ -39,7 +39,10 @@
                 <asp:QueryStringParameter DefaultValue="%" Name="Author" QueryStringField="author" Type="String" />
             </SelectParameters>
         </asp:SqlDataSource>
-        <asp:Button ID="Button1" runat="server" Text="Checkout" OnClick="Button1_Click" />
+        <br /> <br />
+        <asp:Button ID="Button2" CssClass="tm-bordered-btn" runat="server" Text="Clear Cart" OnClick="Button2_Click" />
+        
+        <asp:Button ID="Button1" CssClass="tm-bordered-btn" runat="server" Text="Checkout" OnClick="Button1_Click" />
     </form>
 </asp:Content>
 

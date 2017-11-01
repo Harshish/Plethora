@@ -26,11 +26,11 @@ public partial class _Default : System.Web.UI.Page
                     }
                     else
                     {
-                        Response.Write("No Requests found!");
+                        lblinfo.Text =  "No Requests found!";
                     }
                 }
                 else
-                    Response.Write("Unauthorized Access!");
+                    lblinfo.Text = "Unauthorized Access!";
             }
         }
         

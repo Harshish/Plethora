@@ -6,13 +6,14 @@
     <form id="customer_form" runat="server">
         <%-- <asp:Label runat="server" Text="ISBN"></asp:Label><br /> 
         <asp:TextBox ID="tbISBN" runat="server"></asp:TextBox><br /> --%>
-        <asp:Label runat="server" Text="Title"></asp:Label><br />
-        <asp:TextBox ID="tbTitle" runat="server"></asp:TextBox><br />
-        <asp:Label runat="server" Text="Author"></asp:Label><br />
-        <asp:TextBox ID="tbAuthor" runat="server"></asp:TextBox><br />
-        <asp:Label runat="server" Text="Email"></asp:Label><br />
-        <asp:TextBox ID="tbEmail" runat="server"></asp:TextBox><br />
-        <asp:Button ID="btRequest" runat="server" Text="Send Request" OnClick="btRequest_Click" />
+        <asp:Label runat="server" CssClass="tm-carousel-item-title" Text="Sorry, Book not available!"></asp:Label><br />
+        <asp:Label runat="server" CssClass="tm-carousel-item-title" Text="Title"></asp:Label><br />
+        <asp:TextBox ID="tbTitle" CssClass="form-control" runat="server"></asp:TextBox><br />
+        <asp:Label runat="server" CssClass="tm-carousel-item-title" Text="Author"></asp:Label><br />
+        <asp:TextBox ID="tbAuthor" CssClass="form-control" runat="server"></asp:TextBox><br />
+        <asp:Label runat="server" CssClass="tm-carousel-item-title" Text="Email"></asp:Label><br />
+        <asp:TextBox ID="tbEmail" CssClass="form-control" runat="server"></asp:TextBox><br />
+        <asp:Button ID="btRequest" CssClass="tm-bordered-btn" runat="server" Text="Send Request" OnClick="btRequest_Click" />
     </form>
 </asp:Content>
 

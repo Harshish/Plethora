@@ -32,7 +32,7 @@ public partial class _Default : System.Web.UI.Page
             //cookie.Expires.AddYears(1);
             cookie["Auth"] = "Manager";
             Response.SetCookie(cookie);
-            Response.Redirect("BookRequest.aspx");
+            Response.Redirect("Home.aspx");
         }
         else
         {

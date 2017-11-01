@@ -78,6 +78,6 @@ public partial class _Default : System.Web.UI.Page
 
     protected void Calendar1_SelectionChanged(object sender, EventArgs e)
     {
-        Response.Write(Calendar1.SelectedDate.Date);
+        
     }
 }

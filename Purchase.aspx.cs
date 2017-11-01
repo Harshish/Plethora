@@ -53,7 +53,9 @@ public partial class _Default : System.Web.UI.Page
             {
                 int purCopies = 0;
                 int.TryParse(b.Quantity, out purCopies);
+               
                 SqlCommand cmd = new SqlCommand(updateQuery, con);
+               
                 cmd.Parameters.AddWithValue("@Copies", SqlDbType.Int).Value = purCopies;
                 cmd.Parameters.AddWithValue("@Title", b.Title);
                 cmd.Parameters.AddWithValue("@Price", b.Price);
@@ -74,5 +76,10 @@ public partial class _Default : System.Web.UI.Page
         {
             Response.Redirect("Home.aspx");
         }
+    }
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        Session["Books"] = null;
     }
 }

@@ -6,26 +6,31 @@
 <head runat="server">
     <title>Plethora</title>  
     <link href="styles/global.css" rel="stylesheet" /> 
+    <link rel="stylesheet" href="styles/bootstrap.min.css">                       
+    <link rel="stylesheet" href="styles/templatemo-style.css">  
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <header id="header">  
-    <h1>Plethora</h1>  
-    </header>  
+    
+    <h1 id="header1">Plethora</h1>   
+    <asp:Label style="margin-left:80%;" ID="loginstatus" runat="server"></asp:Label>
     <nav id="nav">  
         <ul>  
-            <li><a href="home.aspx">Home</a></li>   
+            <li><a href="Home.aspx">Home</a></li>   
             <li><a href="Login.aspx">Login</a></li>  
             <li><a href="BookRequest.aspx">Book Requests</a></li>  
+            <li><a href="Logout.aspx" style="margin-left:40%;">Logout</a></li>
         </ul>  
     </nav>  
     
     <div id = "con">
-        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        <div id="innercon">
+            <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         
-        </asp:ContentPlaceHolder>
+            </asp:ContentPlaceHolder>
+        </div>
     </div>
-    <footer id="footer">copyright @Harshish</footer>
+    <footer class="text-xs-center tm-copyright-text">copyright @CSEB-11/17</footer>
 </body>
 </html>

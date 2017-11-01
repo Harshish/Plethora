@@ -4,19 +4,20 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <form id="form1" runat="server">  
-        <asp:Label ID="Label1" runat="server" Text="Title"></asp:Label>
+        <asp:Label ID="Label1" CssClass="tm-carousel-item-title" runat="server" Text="Title"></asp:Label>
         <br />
         <br />
-        <asp:TextBox ID="tbTitle" runat="server"></asp:TextBox>
+        <asp:TextBox ID="tbTitle" CssClass="form-control" placeholder="Title" runat="server"></asp:TextBox>
         <br />
         <br />
-        <asp:Label ID="Label2" runat="server" Text="Author"></asp:Label>
+        <asp:Label ID="Label2" CssClass="tm-carousel-item-title" runat="server" Text="Author"></asp:Label>
         <br />
         <br />
-        <asp:TextBox ID="tbAuthor" runat="server"></asp:TextBox>
+        <asp:TextBox ID="tbAuthor" CssClass="form-control" placeholder="Author" runat="server"></asp:TextBox>
         <br />
         <br />
-        <asp:Button ID="btSearch" runat="server" Text="Search" OnClick="btSearch_Click" />
+        <asp:Button ID="btSearch" CssClass="tm-bordered-btn" runat="server" Text="Search" OnClick="btSearch_Click" />
+        <asp:Button ID="btSearchAll" CssClass="tm-bordered-btn" runat="server" Text="Feeling Nerdy?" OnClick="btSearchAll_Click" />
     </form> 
 </asp:Content>
 

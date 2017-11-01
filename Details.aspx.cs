@@ -10,14 +10,37 @@ using System.Data;
 
 public partial class _Default : System.Web.UI.Page
 {
+    string auth = string.Empty;
     protected void Page_Load(object sender, EventArgs e)
     {
         if (GridView1.Rows.Count == 0)
+        {
             Server.Transfer("BNF.aspx");
+        }
+    
+        HttpCookie cookie = Request.Cookies["Login"];
+        if (cookie != null)
+        {
+            auth = cookie["Auth"];
+
+            if (auth != "Manager")
+            {
+                GridView1.ShowFooter = false;
+                GridView1.Columns[6].Visible = false;
+            }
+            else
+            {
+                GridView1.ShowFooter = true;
+                GridView1.Columns[6].Visible = true;
+            }        
+        }
+    
     }
 
     protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
     {
+        
+
         if (e.CommandName.Equals("AddNew"))
         {
             string ISBN = ((TextBox)GridView1.FooterRow.FindControl("tbISBNf")).Text;
@@ -55,13 +78,26 @@ public partial class _Default : System.Web.UI.Page
             {
                 con.Close();
             }*/
-            SqlDataSource1.InsertParameters["ISBN"].DefaultValue = ISBN;
-            SqlDataSource1.InsertParameters["Title"].DefaultValue = Title;
-            SqlDataSource1.InsertParameters["Author"].DefaultValue = Author;
-            SqlDataSource1.InsertParameters["Price"].DefaultValue = Price;
-            SqlDataSource1.InsertParameters["Publisher"].DefaultValue = Publisher;
-            SqlDataSource1.InsertParameters["Copies"].DefaultValue = Copies; 
-            SqlDataSource1.Insert();
+            if (ISBN != null && ISBN != "" &&
+                Title != null && Title != "" &&
+                Author != null && Author != "" &&
+                Price != null && Price != "" &&
+                Publisher != null && Publisher != "" &&
+                Copies != null && Copies != "")
+            {
+                SqlDataSource1.InsertParameters["ISBN"].DefaultValue = ISBN;
+                SqlDataSource1.InsertParameters["Title"].DefaultValue = Title;
+                SqlDataSource1.InsertParameters["Author"].DefaultValue = Author;
+                SqlDataSource1.InsertParameters["Price"].DefaultValue = Price;
+                SqlDataSource1.InsertParameters["Publisher"].DefaultValue = Publisher;
+                SqlDataSource1.InsertParameters["Copies"].DefaultValue = Copies;
+                SqlDataSource1.Insert();
+                lblSuccessMessage.Text = "Success!";
+            }
+            else
+                lblErrorMessage.Text = "Error!";
         }
     }
+
+    
 }
