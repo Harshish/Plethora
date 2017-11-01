@@ -12,58 +12,56 @@ public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        /*string bookTitle = Request.QueryString["title"];
-        string bookAuthor = Request.QueryString["author"];
-
-        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString);
-        try
-        {
-            string searchQuery = String.Empty;
-            SqlCommand cmd;
-            if (bookTitle.Length == 0 && bookAuthor.Length > 0)
-            {
-                searchQuery = "SELECT [ISBN], [Title], [Author], [Price], [Publisher], [Copies] FROM [Book] WHERE Author=@author";
-                cmd = new SqlCommand(searchQuery, con);
-                cmd.Parameters.AddWithValue("@author", bookTitle);
-            }
-            else if (bookTitle.Length > 0 && bookAuthor.Length == 0)
-            {
-                searchQuery = "SELECT [ISBN], [Title], [Author], [Price], [Publisher], [Copies] FROM [Book] WHERE Title=@title";
-                cmd = new SqlCommand(searchQuery, con);
-                cmd.Parameters.AddWithValue("@title", bookTitle);
-            }
-            else
-            {
-                searchQuery = "SELECT [ISBN], [Title], [Author], [Price], [Publisher], [Copies] FROM [Book] WHERE [Author]=@author and [Title]=@title";
-                cmd = new SqlCommand(searchQuery, con);
-                cmd.Parameters.AddWithValue("@author", bookAuthor);
-                cmd.Parameters.AddWithValue("@title", bookTitle);
-            }
-            /*using (SqlDataReader reader = cmd.ExecuteReader())
-            {
-                if (reader.Read())
-                {
-                    Console.WriteLine(String.Format("{0}", reader["id"]));
-                }
-            } //
-            DataSet dataset = new DataSet();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dataset);
-            con.Open();
-            cmd.ExecuteNonQuery();
-            GridView1.DataSource = dataset;
-            GridView1.DataBind();
-            con.Close();
-        }
-        catch (Exception ex)
-        {
-            Response.Write("Error" + ex.ToString());
-        }
-        finally
-        {
-
-        }*/
         if (GridView1.Rows.Count == 0)
             Server.Transfer("BNF.aspx");
+    }
+
+    protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+        if (e.CommandName.Equals("AddNew"))
+        {
+            string ISBN = ((TextBox)GridView1.FooterRow.FindControl("tbISBNf")).Text;
+
+            string Title = ((TextBox)GridView1.FooterRow.FindControl("tbTitle")).Text;
+
+            string Author = ((TextBox)GridView1.FooterRow.FindControl("tbAuthor")).Text;
+
+            string Price = ((TextBox)GridView1.FooterRow.FindControl("tbPrice")).Text;
+
+            string Publisher = ((TextBox)GridView1.FooterRow.FindControl("tbPublisher")).Text;
+
+            string Copies = ((TextBox)GridView1.FooterRow.FindControl("tbCopies")).Text;
+
+            /*SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString);
+            string insertq = "INSERT INTO [Book] ([ISBN], [Title], [Author], [Price], [Publisher], [Copies]) VALUES (@isbn, @title, @author, @price, @publisher, @copies)";
+            SqlCommand cmd = new SqlCommand(insertq, con);
+            cmd.Parameters.AddWithValue("@isbn", ISBN);
+            cmd.Parameters.AddWithValue("@title", Title);
+            cmd.Parameters.AddWithValue("@author", Author);
+            cmd.Parameters.AddWithValue("@price", Price);
+            cmd.Parameters.AddWithValue("@publisher", Publisher);
+            cmd.Parameters.AddWithValue("@copies", Copies);
+
+            try
+            {
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }*/
+            SqlDataSource1.InsertParameters["ISBN"].DefaultValue = ISBN;
+            SqlDataSource1.InsertParameters["Title"].DefaultValue = Title;
+            SqlDataSource1.InsertParameters["Author"].DefaultValue = Author;
+            SqlDataSource1.InsertParameters["Price"].DefaultValue = Price;
+            SqlDataSource1.InsertParameters["Publisher"].DefaultValue = Publisher;
+            SqlDataSource1.InsertParameters["Copies"].DefaultValue = Copies; 
+            SqlDataSource1.Insert();
+        }
     }
 }

@@ -10,26 +10,26 @@ public partial class _Default : System.Web.UI.Page
     string auth = string.Empty;
     protected void Page_Load(object sender, EventArgs e)
     {
-        HttpCookie cookie = Request.Cookies["Login"];
-        if(cookie!=null)
-            auth = cookie["Auth"];
+        //Application.RemoveAll();
+       // if (!IsPostBack)
+        //{
+            HttpCookie cookie = Request.Cookies["Login"];
+            if (cookie != null)
+                auth = cookie["Auth"];
+        //}
     }
 
     protected void btSearch_Click(object sender, EventArgs e)
     {
         if (tbAuthor.Text.Length > 0 || tbTitle.Text.Length > 0)
         {
-            if(auth=="Manager")
-            {
-
-            }
-            else if(auth=="Employee")
+            if(auth=="Employee")
             {
                 Response.Redirect("Purchase.aspx?title=" + tbTitle.Text + "&author=" + tbAuthor.Text);
             }
             else if(auth=="Owner")
             {
-
+                Response.Redirect("Statistics.aspx?title=" + tbTitle.Text + "&author=" + tbAuthor.Text);
             }
             else
                 Response.Redirect("Details.aspx?title=" + tbTitle.Text + "&author=" + tbAuthor.Text);

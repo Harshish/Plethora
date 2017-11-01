@@ -48,6 +48,7 @@ public partial class _Default : System.Web.UI.Page
             string constr = ConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString;
             SqlConnection con = new SqlConnection(constr);
             string updateQuery = "UPDATE [Book] SET [Copies] = [Copies] - @Copies WHERE ([Title] = @Title AND [Price] = @Price AND [ISBN] = @ISBN)";
+            string insertQuery = "INSERT INTO [Sale] (ISBN,CopiesSold) values (@ISBN2,@Copies2)";
             foreach (Book b in booklist)
             {
                 int purCopies = 0;
@@ -57,6 +58,12 @@ public partial class _Default : System.Web.UI.Page
                 cmd.Parameters.AddWithValue("@Title", b.Title);
                 cmd.Parameters.AddWithValue("@Price", b.Price);
                 cmd.Parameters.AddWithValue("@ISBN", b.ISBN);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+                cmd.CommandText = insertQuery;
+                cmd.Parameters.AddWithValue("@Copies2", SqlDbType.Int).Value = purCopies;
+                cmd.Parameters.AddWithValue("@ISBN2", b.ISBN);
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();
