@@ -5,6 +5,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Data;
 
 public partial class _Default : System.Web.UI.Page
 {
@@ -79,7 +82,6 @@ public partial class _Default : System.Web.UI.Page
             }
         }
         BindMyGridview();
-        //TODO SEND EMAIL, UPDATE PUBLISHER , UPDATE BOOKS
     }
 
     protected void cbOrder_CheckedChanged(object sender, EventArgs e)

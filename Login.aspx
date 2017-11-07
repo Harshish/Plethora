@@ -7,7 +7,7 @@
         <asp:Label ID="Label1" CssClass="tm-carousel-item-title" runat="server" Text="Username:  "></asp:Label>
         <asp:TextBox ID="uname" CssClass="form-control" placeholder="Username" runat="server"></asp:TextBox><br /><br />
         <asp:Label ID="Label2" CssClass="tm-carousel-item-title" runat="server" Text="Password:  "></asp:Label>
-        <asp:TextBox ID="pw" CssClass="form-control" placeholder="Password" runat="server"></asp:TextBox><br /><br />
+        <asp:TextBox ID="pw" TextMode="Password" CssClass="form-control" placeholder="Password" runat="server"></asp:TextBox><br /><br />
         <asp:Label ID="Label3" CssClass="tm-carousel-item-title" runat="server" Text=""></asp:Label>
         <asp:button ID="managerBtn" CssClass="tm-bordered-btn" runat="server" text="Login as Manager" OnClick="managerBtn_Click" /><br /><br />
         <asp:button ID="employeeBtn" CssClass="tm-bordered-btn" runat="server" text="Login as Employee" OnClick="employeeBtn_Click" />

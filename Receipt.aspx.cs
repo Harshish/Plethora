@@ -17,7 +17,7 @@ public partial class _Default : System.Web.UI.Page
             int total = 0;
             foreach (Book b in booklist)
                 total += b.Total;
-            Label1.Text = "TOTAL PAYABLE AMOUNT: " + total;
+            Label1.Text = "TOTAL PAYABLE AMOUNT: Rs " + total;
         }
     }
 }

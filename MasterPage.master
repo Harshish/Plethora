@@ -19,8 +19,9 @@
         <ul>  
             <li><a href="Home.aspx">Home</a></li>   
             <li><a href="Login.aspx">Login</a></li>  
-            <li><a href="BookRequest.aspx">Book Requests</a></li>  
-            <li><a href="Logout.aspx" style="margin-left:40%;">Logout</a></li>
+            <li><a href="BookRequest.aspx">Book Requests</a></li>
+            <li><a href="Ajax.aspx">AJAX</a></li>
+            <li><a href="Logout.aspx" style="margin-left:35%;">Logout</a></li>
         </ul>  
     </nav>  
     
